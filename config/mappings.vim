@@ -1,0 +1,197 @@
+"=============================================================================
+"@ Author: Nordwind
+"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ Created  Time: 19:51:13 30-12-2018
+"@ Last Modified: 19:52:27 30-12-2018 
+"@ Description:
+"         - File Name: mappings.vim
+"         - Neovim Key mappings settings
+"=============================================================================
+
+
+" Edit --------------------{{{ 
+  "Leader key
+  let mapleader = ' '
+  let localleader = '-'
+
+
+  " 替换ESC键退出INSERT模式
+  inoremap jj <Esc>
+
+  " 屏蔽方向键 Normal Insert Visual
+  nnoremap <Left> <Nop>
+  nnoremap <Right> <Nop>
+  nnoremap <Up> <Nop>
+  nnoremap <Down> <Nop>
+  inoremap <Left> <Nop>
+  inoremap <Right> <Nop>
+  inoremap <Up> <Nop>
+  inoremap <Down> <Nop>
+  vnoremap <Left> <Nop>
+  vnoremap <Right> <Nop>
+  vnoremap <Up> <Nop>
+  vnoremap <Down> <Nop>
+
+
+  " 左右缩进一行或者选区
+  vnoremap < <gv
+  vnoremap > >gv
+
+  " 上下移动一行或者一个选区
+  nnoremap J :m .+1<CR>==
+  nnoremap K :m .-2<CR>==
+  vnoremap J :m '>+1<CR>gv=gv
+  vnoremap K :m '<-2<CR>gv=gv
+
+  " 复制选中区到系统剪切板中
+  vnoremap <leader>y "+y
+
+  " select all 全选
+  nnoremap <Leader>sa ggVG
+
+  " 选中并高亮最后一次插入的内容
+  nnoremap gv `[v`]
+
+  " .vimrc & .zshrc 快速打开 并保存生效
+  nnoremap <leader>ev :vsp ~/.config/nvim/init.vim<CR>
+  nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
+  nnoremap <leader>ez :vsp ~/.zshrc<CR>
+  nnoremap <leader>sz :source ~/.zshrc<CR>
+
+  " 命令行模式增强，ctrl - a到行首， -e 到行尾
+  cnoremap <C-j> <t_kd>
+  cnoremap <C-k> <t_ku>
+  cnoremap <C-a> <Home>
+  cnoremap <C-e> <End>
+
+  "文本对齐
+  xnoremap <leader>a <Plug>(EasyAlign)
+  nnoremap <leader>a <Plug>(EasyAlign)
+" }}}
+
+" Window --------------------{{{ 
+  " 允许横向和纵向分隔布局
+  set splitbelow
+  set splitright
+
+  " 窗口分隔
+  nnoremap <leader>\ :vs<CR>
+  nnoremap <leader>- :sp<CR>
+
+  " 窗口跳转
+  nnoremap <C-J> <C-W><C-J> " 组合快捷键：- Ctrl-j 切换到下方的分割窗口
+  nnoremap <C-K> <C-W><C-K> " 组合快捷键：- Ctrl-k 切换到上方的分割窗口
+  nnoremap <C-L> <C-W><C-L> " 组合快捷键：- Ctrl-l 切换到右侧的分割窗口
+  nnoremap <C-H> <C-W><C-H> " 组合快捷键：- Ctrl-h 切换到左侧的分割窗口
+
+  " 调整窗口大小
+  noremap <leader>= :resize +3<CR>
+  noremap <leader>- :resize -3<CR>
+  noremap <leader>. :vertical resize +3<CR>
+  noremap <leader>, :vertical resize -3<CR>
+" }}}
+
+" Tab --------------------{{{ 
+  " 新建Tab
+  augroup NewTab
+    autocmd TabLeave * let g:last_active_tab = tabpagenr()
+  augroup END
+
+  " 新建tab  Ctrl+t
+  nnoremap <C-t>     :tabnew<CR>
+  inoremap <C-t>     <Esc>:tabnew<CR>
+
+  " Tab切换
+  map <leader>th :tabfirst<cr>
+  map <leader>tl :tablast<cr>
+
+  map <leader>tj :tabnext<cr>
+  map <leader>tk :tabprev<cr>
+  map <leader>tn :tabnext<cr>
+  map <leader>tp :tabprev<cr>
+
+  map <leader>te :tabedit<cr>
+  map <leader>td :tabclose<cr>
+  map <leader>tm :tabm<cr>
+
+  " normal模式下切换到指定的 Tab
+  noremap <leader>1 1gt
+  noremap <leader>2 2gt
+  noremap <leader>3 3gt
+  noremap <leader>4 4gt
+  noremap <leader>5 5gt
+  noremap <leader>6 6gt
+  noremap <leader>7 7gt
+  noremap <leader>8 8gt
+  noremap <leader>9 9gt
+  noremap <leader>0 :tablast <C-r>
+
+  let g:last_active_tab = 1
+  nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
+  vnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
+" }}} 
+
+" Buffer --------------------{{{ 
+  noremap <leader>bp :bp<CR>
+  noremap <leader>bn :bn<CR>
+
+  noremap <leader>bl :ls<CR>
+
+  noremap <leader>b1 :b1<CR>
+  noremap <leader>b2 :b2<CR>
+  noremap <leader>b3 :b3<CR>
+  noremap <leader>b4 :b4<CR>
+  noremap <leader>b5 :b5<CR>
+  noremap <leader>b6 :b6<CR>
+  noremap <leader>b7 :b7<CR>
+  noremap <leader>b8 :b8<CR>
+  noremap <leader>b9 :b9<CR>
+  noremap <leader>b0 :b0<CR>
+
+  " delete buffers
+  noremap <leader>bd1 :bd1<CR>
+  noremap <leader>bd2 :bd2<CR>
+  noremap <leader>bd3 :bd3<CR>
+  noremap <leader>bd4 :bd4<CR>
+  noremap <leader>bd5 :bd5<CR>
+  noremap <leader>bd6 :bd6<CR>
+  noremap <leader>bd7 :bd7<CR>
+  noremap <leader>bd8 :bd8<CR>
+  noremap <leader>bd9 :bd9<CR>
+  noremap <leader>bd0 :bd0<CR>
+
+  " delete buffer
+  noremap <leader>bd :bdelete<CR>
+" }}}
+
+" RunCode --------------------{{{ 
+  augroup RunCode
+    map <F5> :call CompileRunGcc()<CR>
+    func! CompileRunGcc()
+      exec'w'
+      if &filetype ==? 'c'
+        exec '!g++ % -o %<'
+        exec '!time ./%<'
+      elseif &filetype ==? 'python'
+        exec '!clear'
+        exec '!time python3 %'
+      elseif &filetype ==? 'sh'
+        exec '!time bash %'
+      elseif &filetype ==? 'html'
+        exec '!chrome % &'
+      elseif &filetype ==? 'go'
+        exec '!time go run %'
+      elseif &filetype ==? 'markdown'
+        exec '!~/.vim/markdown.pl % > %.html'
+        exec '!chrome %.html'
+      endif
+    endfunc
+  augroup END
+" }}}
+
+" Plugins -------------------- {{{ 
+  " ALE -------------------- {{{ 
+    "nnoremap <leader>sc :ALEToggle<CR>
+  " }}}
+" }}}
+

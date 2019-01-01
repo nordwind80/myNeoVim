@@ -1,0 +1,15 @@
+{
+  "coc.preferences.diagnostic.enable": false,
+  "coc.preferences.autoTrigger": "always",
+  "languageserver":{
+    "golang": {
+      "command": "go-langserver",
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "gocodeCompletionEnabled": true,
+        "diagnosticEnabled": true,
+        "lintTool": "gofmt"
+      }
+    }
+  }
+}
