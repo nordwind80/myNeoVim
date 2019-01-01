@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t 
 "@ Created  Time: 19:51:13 30-12-2018
-"@ Last Modified: 19:52:27 30-12-2018 
+"@ Last Modified: 16:57:14 01-01-2019
 "@ Description:
 "         - File Name: mappings.vim
 "         - Neovim Key mappings settings
@@ -32,6 +32,9 @@
   vnoremap <Up> <Nop>
   vnoremap <Down> <Nop>
 
+  " 快速在当前行上下插入空行
+  nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+  nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
   " 左右缩进一行或者选区
   vnoremap < <gv

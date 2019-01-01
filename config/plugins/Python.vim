@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 13:34:10 01-01-2019
-"@ Last Modified: 13:39:29 01-01-2019
+"@ Last Modified: 17:08:24 01-01-2019
 "@ Description:
 "         - File Name: Python.vim
 "         - Python language settings

@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 13:46:07 31-12-2018
-"@ Last Modified: 
+"@ Last Modified: 17:06:21 01-01-2019
 "@ Description:
 "         - File Name: coc.vim
 "         - Coc.nvim completion plugin

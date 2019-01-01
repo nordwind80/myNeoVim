@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 19:54:26 30-12-2018
-"@ Last Modified: 13:44:34 31-12-2018
+"@ Last Modified: 17:05:06 01-01-2019
 "@ Description:
 "         - File Name: plugins.vim
 "         - Plugin manage and plugins settings
@@ -69,7 +69,6 @@
   " }}}
   call plug#end()
 " }}} 
-
 
 " Plugins setting --------------------{{{ 
   " Complete setting

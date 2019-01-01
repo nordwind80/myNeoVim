@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 21:14:12 30-12-2018
-"@ Last Modified: 21:19:57 30-12-2018
+"@ Last Modified: 17:07:41 01-01-2019
 "@ Description:
 "         - File Name: nerdtree.vim
 "         - NERDTree settings

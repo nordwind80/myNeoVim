@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 20:05:28 30-12-2018
-"@ Last Modified: 21:22:34 30-12-2018
+"@ Last Modified: 17:05:49 01-01-2019
 "@ Description:
 "         - File Name: ale.vim
 "         - ALE settings

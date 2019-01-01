@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 19:57:37 30-12-2018
-"@ Last Modified: 21:33:47 30-12-2018
+"@ Last Modified: 17:02:35 01-01-2019
 "@ Description:
 "         - File Name: options.vim
 "         - NeoVim General Settings
@@ -129,7 +129,7 @@
           call setline(1, '#! /bin/bash')
           call setline(2, '#')
           call setline(3, '# Author: Nordwind')
-          call setline(4, '# E-Mail: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=')
+          call setline(4, '# E-Mail: bm9yZHdpbmQubWVAZ21haWwuY29t')
           call setline(5, '# Created  Time: '.strftime('%H:%M:%S %d/%m/%Y'))
           call setline(6, '# Last Modified: ')
           call setline(7, '# Description:')
@@ -138,43 +138,42 @@
         elseif &filetype ==? 'vim'
           call setline(1, '"=============================================================================')  
           call setline(2, '"@ Author: Nordwind')
-          call setline(3, '"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=')
+          call setline(3, '"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t')
           call setline(4, '"@ Created  Time: '.strftime('%H:%M:%S %d-%m-%Y'))  
           call setline(5, '"@ Last Modified: ')
           call setline(6, '"@ Description:')
           call setline(7, '"         - File Name: '.expand('%'))
-          call setline(8, '"         - Version  : ')
           call setline(8, '"=============================================================================')
         elseif (&filetype ==? 'c' || &filetype ==? 'cpp')
           call setline(1, '/************************************************************************')  
           call setline(2, '\ @Author: Nordwind')
-          call setline(3, '\ @E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=')
+          call setline(3, '\ @E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t')
           call setline(4, '\ @Created  Time: '.strftime('%H:%M:%S %d/%m/%Y'))  
           call setline(5, '\ @Last Modified: ')
           call setline(6, '\ @Description:')
           call setline(7, '\        - File Name: '.expand('%'))
           call setline(8, '\        - ')
-          call setline(8, '\************************************************************************')  
+          call setline(9, '\************************************************************************')  
         elseif &filetype ==? 'python'
           call setline(1, '#!/usr/bin/env python3')
           call setline(2, '# -*- coding: utf-8 -*-')
           call setline(3, '#')
           call setline(4, '# Author: Nordwind')
-          call setline(5, '# E-Mail: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=')
+          call setline(5, '# E-Mail: bm9yZHdpbmQubWVAZ21haWwuY29t')
           call setline(6, '# Created  Time: '.strftime('%H:%M:%S %d-%m-%Y'))
           call setline(7, '# Last Modified: ')
           call setline(8, '# Description:')
           call setline(8, '#        - File Name: '.expand('%'))
-          call setline(9, '#        - Version  : ')
+          call setline(9, '#        - ')
         elseif &filetype ==? 'go'
           call setline(1, '// =============================================================================')
           call setline(2, '// Author: Nordwind')
-          call setline(3, '// E-Mail: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=')
+          call setline(3, '// E-Mail: bm9yZHdpbmQubWVAZ21haWwuY29t')
           call setline(4, '// Created  Time: '.strftime('%H:%M:%S %d-%m-%Y'))
           call setline(5, '// Last Modified: ')
           call setline(6, '// Description:')
           call setline(7, '//         - File Name: '.expand('%'))
-          call setline(8, '//         - Version  : ')
+          call setline(8, '//         - ')
           call setline(9, '// =============================================================================')
         elseif &filetye==? 'markdown'
           call setline(1, '\// Author: Nordwind')

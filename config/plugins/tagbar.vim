@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 12:30:40 31-12-2018
-"@ Last Modified: 13:15:29 31-12-2018
+"@ Last Modified: 17:09:22 01-01-2019
 "@ Description:
 "         - File Name: tagbar.vim
 "         - TagBar Settings

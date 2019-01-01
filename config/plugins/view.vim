@@ -1,8 +1,8 @@
 "=============================================================================
 "@ Author: Nordwind
-"@ E-Mial: ZWFnbGV3aW5ncy55aUBnbWFpbC5jb20=
+"@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 21:27:21 30-12-2018
-"@ Last Modified: 22:40:24 30-12-2018
+"@ Last Modified: 17:09:57 01-01-2019
 "@ Description:
 "         - File Name: view.vim
 "         - NeoVim View Plugins Settings
