@@ -109,9 +109,9 @@
   " VimScript file settings --------------------{{{ 
   augroup filetype_vim
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
-    autocmd FileType vim :iabbrev <buffer> --- -------------------- {{{
-    autocmd FileType vim :iabbrev <buffer> === "=============================================================================
+    autocmd FileType vim,tmux setlocal foldmethod=marker
+    autocmd FileType vim,tmux :iabbrev <buffer> --- -------------------- {{{
+    autocmd FileType vim,tmux :iabbrev <buffer> === "=============================================================================
     iabbrev idts    <c-r>=strftime("%H:%M:%S %d-%m-%Y")<CR>
   augroup END
   " }}} }}}
