@@ -14,7 +14,6 @@
   let mapleader = ' '
   let localleader = '-'
 
-
   " 替换ESC键退出INSERT模式
   inoremap jj <Esc>
 
@@ -33,8 +32,8 @@
   vnoremap <Down> <Nop>
 
   " 快速在当前行上下插入空行
-  nnoremap [<space>  :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
-  nnoremap ]<space>  :<c-u>put =repeat(nr2char(10), v:count1)<cr>
+  nnoremap [<space> :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
+  nnoremap ]<space> :<c-u>put =repeat(nr2char(10), v:count1)<cr>
 
   " 左右缩进一行或者选区
   vnoremap < <gv
@@ -45,6 +44,16 @@
   nnoremap K :m .-2<CR>==
   vnoremap J :m '>+1<CR>gv=gv
   vnoremap K :m '<-2<CR>gv=gv
+
+  " 命令行模式增强，ctrl - a到行首， -e 到行尾
+  cnoremap <C-j> <t_kd>
+  cnoremap <C-k> <t_ku>
+  cnoremap <C-a> <Home>
+  cnoremap <C-e> <End>
+
+  " 快速移动行首和行尾
+  nnoremap H ^
+  nnoremap L $
 
   " 复制选中区到系统剪切板中
   vnoremap <leader>y "+y
@@ -61,11 +70,9 @@
   nnoremap <leader>ez :vsp ~/.zshrc<CR>
   nnoremap <leader>sz :source ~/.zshrc<CR>
 
-  " 命令行模式增强，ctrl - a到行首， -e 到行尾
-  cnoremap <C-j> <t_kd>
-  cnoremap <C-k> <t_ku>
-  cnoremap <C-a> <Home>
-  cnoremap <C-e> <End>
+  " 去掉和恢复搜索高亮
+  noremap <silent><leader>/ :nohls<CR>
+  noremap <silent><leader>// :set hls<CR>
 
   "文本对齐
   xnoremap <leader>a <Plug>(EasyAlign)
@@ -101,8 +108,8 @@
   augroup END
 
   " 新建tab  Ctrl+t
-  nnoremap <C-t>     :tabnew<CR>
-  inoremap <C-t>     <Esc>:tabnew<CR>
+  nnoremap <C-w>     :tabnew<CR>
+  inoremap <C-w>     <Esc>:tabnew<CR>
 
   " Tab切换
   map <leader>th :tabfirst<cr>
