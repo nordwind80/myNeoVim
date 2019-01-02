@@ -2,7 +2,7 @@
 "@ Author: Nordwind
 "@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 19:54:26 30-12-2018
-"@ Last Modified: 17:05:06 01-01-2019
+"@ Last Modified: 09:29:48 02-01-2019
 "@ Description:
 "         - File Name: plugins.vim
 "         - Plugin manage and plugins settings
@@ -13,59 +13,59 @@
   call plug#begin()
 
   " VIM --------------------{{{ 
-  Plug 'jiangmiao/auto-pairs'
-  Plug 'junegunn/vim-easy-align'
-  Plug 'scrooloose/nerdcommenter'
-  Plug 'tpope/vim-surround'
-  Plug 'yuttie/comfortable-motion.vim'
-  Plug 'CodeFalling/fcitx-vim-osx'
-  Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
+    Plug 'junegunn/vim-easy-align'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'tpope/vim-surround'
+    Plug 'yuttie/comfortable-motion.vim'
+    Plug 'CodeFalling/fcitx-vim-osx'
+    Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
   " }}}
 
   " Lint --------------------{{{ 
-  Plug 'w0rp/ale', {'for': ['vim', 'python', 'go', 'javascript', 'typescript']}
+    Plug 'w0rp/ale', {'for': ['vim', 'python', 'go', 'javascript', 'typescript']}
   " }}}
 
   " Search --------------------{{{ 
-  Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
+    Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
   " }}}
 
   " Code Complete --------------------{{{ 
-  "Plug 'Valloric/YouCompleteMe'
-  "Plug 'Shougo/echodoc.vim'
-  "Plug 'SirVer/ultisnips'
-  Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}, 'for': ['vim', 'c', 'go', 'vue', 'python', 'javascript', 'typescript', 'css', 'html']}
+    "Plug 'Valloric/YouCompleteMe'
+    "Plug 'Shougo/echodoc.vim'
+    "Plug 'SirVer/ultisnips'
+    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}, 'for': ['vim', 'c', 'go', 'vue', 'python', 'javascript', 'typescript', 'css', 'html']}
   " }}}
 
   " View Style --------------------{{{ 
-  Plug 'rakr/vim-one'
-  Plug 'nordwind80/space-vim-dark'
-  "Plug 'morhetz/gruvbox'
-  Plug 'vim-airline/vim-airline'
-  Plug 'ryanoasis/vim-devicons'
-  Plug 'mhinz/vim-startify'
-  Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-  Plug 'luochen1990/rainbow'
-  Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'rakr/vim-one'
+    Plug 'nordwind80/space-vim-dark'
+    Plug 'vim-airline/vim-airline'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'mhinz/vim-startify'
+    Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+    Plug 'luochen1990/rainbow'
+    Plug 'nathanaelkane/vim-indent-guides'
   " }}}
 
   " Git --------------------{{{ 
-  Plug 'tpope/vim-fugitive'
-  Plug 'airblade/vim-gitgutter'
+    Plug 'tpope/vim-fugitive'
+    Plug 'airblade/vim-gitgutter'
   " }}}
 
   " Syntax --------------------{{{ 
-  " Go
-  Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
+    " Go
+    Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
 
-  " Python
-  Plug 'alfredodeza/pytest.vim', {'for': 'python'}
+    " Python
+    Plug 'vim-python/python-syntax', {'for': 'python'}
+    Plug 'alfredodeza/pytest.vim', {'for': 'python'}
 
-  " MarkDown
-  Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
-  Plug 'godlygeek/tabular', {'for': 'markdown'}
-  Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
-  Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
+    " MarkDown
+    Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
+    Plug 'godlygeek/tabular', {'for': 'markdown'}
+    Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
+    Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
   " }}}
   call plug#end()
 " }}} 

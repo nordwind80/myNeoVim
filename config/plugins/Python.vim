@@ -2,7 +2,7 @@
 "@ Author: Nordwind
 "@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 13:34:10 01-01-2019
-"@ Last Modified: 17:08:24 01-01-2019
+"@ Last Modified: 09:11:47 02-01-2019
 "@ Description:
 "         - File Name: Python.vim
 "         - Python language settings
@@ -11,9 +11,9 @@
 
 " Python -------------------- {{{ 
   " Syntax Settings -------------------- {{{ 
-    "let g:python_highlight_all = 1
-    "let g:python_highlight_space_errors = 0
-    "let g:python_highlight_indent_errors = 0
+    let g:python_highlight_all = 1
+    let g:python_highlight_space_errors = 0
+    let g:python_highlight_indent_errors = 0
   " }}}
 
   " Plugins Settings -------------------- {{{ 
