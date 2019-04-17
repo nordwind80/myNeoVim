@@ -16,8 +16,8 @@
   set fileencodings=utf-8,gbk,gb2312,gb18030
 
   " GUI Font
-  set guifont=
-  set guifontwide=
+  set guifontwide=input:h16
+  set guifont=Hack\ regular\ Nerd\ Font\ Complete:h16
 
   " GUI window
   set linespace=6
@@ -25,7 +25,13 @@
   set guioptions-=r
   set guioptions-=L
   set guioptions-=b
-  
+
+  " vim-airline
+  let g:airline_left_sep = "\uE0C0"
+  "let g:airline_left_alt_sep = "\uE0C6"
+  let g:airline_right_sep = "\uE0C2 "
+  "let g:airline_right_alt_sep = "\uE0C7"
+    
   " Colors
   set termguicolors
   set background=dark
@@ -45,7 +51,7 @@
   set laststatus=2
 
   " Command line
-  set noshowcmd
+  set noshowmode
   set cmdheight=2
 
   " Cursor
@@ -87,10 +93,12 @@
   "set clipboard+=unnamed
 
   " Complete
-  set pumheight=30
-  set wildmenu
-  set wildmode=longest,full
-  set completeopt=menu,menuone
+  "set pumheight=50
+  "set wildmenu
+  "set wildmode=longest,full
+  "set complete+=k
+  "set complete-=t
+  "set completeopt=menu,preview
 
   " Backup file
   set nobackup
@@ -118,7 +126,7 @@
 
   augroup FileTypeSetting
     autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
-    autocmd FileType go setlocal noexpandtab tabstop=4 shiftwidth=4 autoindent
+    autocmd FileType go setlocal noexpandtab tabstop=8 shiftwidth=8 autoindent
   augroup END
 
   augroup FileHead
@@ -156,15 +164,15 @@
           call setline(9, '\************************************************************************')  
         elseif &filetype ==? 'python'
           call setline(1, '#!/usr/bin/env python3')
-          call setline(2, '# -*- coding: utf-8 -*-')
-          call setline(3, '#')
-          call setline(4, '# Author: Nordwind')
-          call setline(5, '# E-Mail: bm9yZHdpbmQubWVAZ21haWwuY29t')
-          call setline(6, '# Created  Time: '.strftime('%H:%M:%S %d-%m-%Y'))
-          call setline(7, '# Last Modified: ')
-          call setline(8, '# Description:')
+          call setline(2, '#')
+          call setline(3, '# Author: Nordwind')
+          call setline(4, '# E-Mail: bm9yZHdpbmQubWVAZ21haWwuY29t')
+          call setline(5, '# Created  Time: '.strftime('%H:%M:%S %d-%m-%Y'))
+          call setline(6, '# Last Modified: ')
+          call setline(7, '# Description:')
           call setline(8, '#        - File Name: '.expand('%'))
-          call setline(9, '#        - ')
+          call setline(9, '#        - Version: ')
+          call setline(10, '#        - ')
         elseif &filetype ==? 'go'
           call setline(1, '// =============================================================================')
           call setline(2, '// Author: Nordwind')
@@ -173,8 +181,9 @@
           call setline(5, '// Last Modified: ')
           call setline(6, '// Description:')
           call setline(7, '//         - File Name: '.expand('%'))
-          call setline(8, '//         - ')
-          call setline(9, '// =============================================================================')
+          call setline(8, '//         - Version: ')
+          call setline(9, '//         - ')
+          call setline(10, '// =============================================================================')
         elseif &filetye==? 'markdown'
           call setline(1, '\// Author: Nordwind')
         endif

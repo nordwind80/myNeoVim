@@ -1,15 +1,44 @@
 {
+  // coc-python
+  "python.autoComplete.addBrackets": true,
+  "python.jediEnabled": true,
+  "python.linting.enabled": false,
+  "python.formatting.provider": "yapf",
+  "python.venvPath": "/Users/Nordwind/.local/share/virtualenvs/Python--fREnqhY",
+
+  // coc-tsserver
+  "tsserver.enableJavascript": false,
+  "tsserver.orgnizeImportOnSave": true,
+  "typescript.preferences.noSemicolons": true,
+  "typescript.preferences.quoteStyle": "single",
+  "javascript.preferences.noSemicolons": true,
+  "javascript.preferences.quoteStyle": "single",
+
+  "suggest.minTriggerInputLength": 2,
+  "suggest.snippetIndicator": " ►",
+  "suggest.enablePreview": true,
+
   "coc.preferences.diagnostic.enable": false,
   "coc.preferences.autoTrigger": "always",
+  "suggest.autoTrigger": "always",
+
   "languageserver":{
     "golang": {
-      "command": "go-langserver",
-      "filetypes": ["go"],
-      "initializationOptions": {
-        "gocodeCompletionEnabled": true,
-        "diagnosticEnabled": true,
-        "lintTool": "gofmt"
-      }
+      "command": "gopls",
+      "filetypes": ["go"]
+    },
+
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
+
+    "efm": {
+      "command": "efm-langserver",
+      "args": ["-c", "/Users/Nordwind/.config/efm-langserver/config.yaml"],
+      "filetypes": ["vim", "eruby", "markdown"]
     }
   }
 }

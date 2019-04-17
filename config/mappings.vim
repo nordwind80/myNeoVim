@@ -39,9 +39,11 @@
   vnoremap < <gv
   vnoremap > >gv
 
-  " 上下移动一行或者一个选区
+  " 上下移动一行
   nnoremap J :m .+1<CR>==
   nnoremap K :m .-2<CR>==
+
+  " 上下移动一个选区
   vnoremap J :m '>+1<CR>gv=gv
   vnoremap K :m '<-2<CR>gv=gv
 
@@ -108,8 +110,8 @@
   augroup END
 
   " 新建tab  Ctrl+t
-  nnoremap <C-w>     :tabnew<CR>
-  inoremap <C-w>     <Esc>:tabnew<CR>
+  nnoremap <C-t>     :tabnew<CR>
+  inoremap <C-t>     <Esc>:tabnew<CR>
 
   " Tab切换
   map <leader>th :tabfirst<cr>
@@ -193,7 +195,7 @@
         exec '!time go run %'
       elseif &filetype ==? 'markdown'
         exec '!~/.vim/markdown.pl % > %.html'
-        exec '!chrome %.html'
+        exec '!open -a Google\\ Chrome %.html'
       endif
     endfunc
   augroup END

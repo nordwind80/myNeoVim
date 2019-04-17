@@ -14,12 +14,13 @@
 
   " VIM --------------------{{{ 
     Plug 'junegunn/vim-easy-align'
-    Plug 'jiangmiao/auto-pairs'
+    "Plug 'jiangmiao/auto-pairs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-surround'
     Plug 'yuttie/comfortable-motion.vim'
     Plug 'CodeFalling/fcitx-vim-osx'
     Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
+    Plug 'wellle/targets.vim'
   " }}}
 
   " Lint --------------------{{{ 
@@ -34,7 +35,10 @@
     "Plug 'Valloric/YouCompleteMe'
     "Plug 'Shougo/echodoc.vim'
     "Plug 'SirVer/ultisnips'
-    Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}, 'for': ['vim', 'c', 'go', 'vue', 'python', 'javascript', 'typescript', 'css', 'html']}
+    "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}, 'for': ['vim', 'c', 'go', 'vue', 'python', 'javascript', 'typescript', 'css', 'html']}
+    "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#build()}}
+    Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+    Plug 'honza/vim-snippets'
   " }}}
 
   " View Style --------------------{{{ 
@@ -55,7 +59,9 @@
 
   " Syntax --------------------{{{ 
     " Go
+    "Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
     Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
+    "Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
     " Python
     Plug 'vim-python/python-syntax', {'for': 'python'}
