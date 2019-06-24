@@ -2,7 +2,7 @@
 "@ Author: Nordwind
 "@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t 
 "@ Created  Time: 19:51:13 30-12-2018
-"@ Last Modified: 21:03:43 24-06-2019 
+"@ Last Modified: 21:31:14 24-06-2019 
 "@ Description:
 "         - File Name: mappings.vim
 "         - Neovim Key mappings settings
@@ -81,12 +81,6 @@
   " 上下移动一个选区
   vnoremap J :m '>+1<CR>gv=gv
   vnoremap K :m '<-2<CR>gv=gv
-
-  " 命令行模式增强，ctrl - a到行首， -e 到行尾
-  cnoremap <C-j> <t_kd>
-  cnoremap <C-k> <t_ku>
-  cnoremap <C-a> <Home>
-  cnoremap <C-e> <End>
 
   " 快速移动行首和行尾
   nnoremap H ^
