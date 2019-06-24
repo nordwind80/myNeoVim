@@ -2,7 +2,7 @@
 "@ Author: Nordwind
 "@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t
 "@ Created  Time: 19:54:26 30-12-2018
-"@ Last Modified: 09:29:48 02-01-2019
+"@ Last Modified: 21:04:27 24-06-2019 
 "@ Description:
 "         - File Name: plugins.vim
 "         - Plugin manage and plugins settings
@@ -14,41 +14,54 @@
 
   " VIM --------------------{{{ 
     Plug 'junegunn/vim-easy-align'
-    "Plug 'jiangmiao/auto-pairs'
     Plug 'scrooloose/nerdcommenter'
     Plug 'tpope/vim-surround'
     Plug 'yuttie/comfortable-motion.vim'
-    Plug 'CodeFalling/fcitx-vim-osx'
-    Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
-    Plug 'wellle/targets.vim'
+
+    " WhichKey
+    Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
+
+    " Multiple Cursors
+    Plug 'terryma/vim-multiple-cursors'
+
+    " vim slime
+    Plug 'jpalardy/vim-slime'
   " }}}
+
+  " TextObject -------------------- {{{ 
+    Plug 'wellle/targets.vim'
+    "Plug 'kana/vim-textobj-user'
+    " 增加行文本对象: l   dal yal cil
+    "Plug 'kana/vim-textobj-line'
+    " 增加文件文本对象: e   dae yae cie
+    "Plug 'kana/vim-textobj-entire'
+    " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
+    "Plug 'kana/vim-textobj-indent'
+ 
+  
+  " }}}"
 
   " Lint --------------------{{{ 
     Plug 'w0rp/ale', {'for': ['vim', 'python', 'go', 'javascript', 'typescript']}
   " }}}
 
   " Search --------------------{{{ 
-    Plug 'Yggdroot/LeaderF', {'do': './install.sh'}
+    Plug '/usr/local/opt/fzf'
+    Plug 'junegunn/fzf.vim'
+    Plug 'tracyone/fzf-funky',{'on': 'CtrlPFunky'}
   " }}}
 
   " Code Complete --------------------{{{ 
-    "Plug 'Valloric/YouCompleteMe'
-    "Plug 'Shougo/echodoc.vim'
-    "Plug 'SirVer/ultisnips'
-    "Plug 'neoclide/coc.nvim', {'tag': '*', 'do': { -> coc#util#install()}, 'for': ['vim', 'c', 'go', 'vue', 'python', 'javascript', 'typescript', 'css', 'html']}
-    "Plug 'neoclide/coc.nvim', {'do': { -> coc#util#build()}}
     Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
     Plug 'honza/vim-snippets'
   " }}}
 
   " View Style --------------------{{{ 
-    Plug 'rakr/vim-one'
     Plug 'nordwind80/space-vim-dark'
     Plug 'vim-airline/vim-airline'
     Plug 'ryanoasis/vim-devicons'
     Plug 'mhinz/vim-startify'
     Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-    Plug 'luochen1990/rainbow'
     Plug 'nathanaelkane/vim-indent-guides'
   " }}}
 
@@ -59,13 +72,12 @@
 
   " Syntax --------------------{{{ 
     " Go
-    "Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
     Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
-    "Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries'}
 
     " Python
-    Plug 'vim-python/python-syntax', {'for': 'python'}
+    Plug 'nordwind80/python-syntax', {'for': 'python'}
     Plug 'alfredodeza/pytest.vim', {'for': 'python'}
+    Plug 'ambv/black', {'for': 'python'}
 
     " MarkDown
     Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
@@ -73,6 +85,7 @@
     Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
     Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
   " }}}
+
   call plug#end()
 " }}} 
 
@@ -87,13 +100,17 @@
   " Search setting
   runtime /config/plugins/search.vim
 
-  " Bars setting
-  runtime /config/plugins/tagbar.vim
+  " TreeBar setting
   runtime /config/plugins/nerdtree.vim
 
   " Other plugins setting
   runtime /config/plugins/view.vim
   runtime /config/plugins/features.vim
+
+  " Which-key
+  runtime /config/plugins/whichkey.vim
+
+  runtime /config/plugins/vim-slime.vim
 
   " Syntax setting
   runtime /config/plugins/Go.vim

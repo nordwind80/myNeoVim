@@ -12,12 +12,16 @@
 " Coc.Nvim -------------------- {{{ 
   " General Settings -------------------- {{{ 
     set pumheight=35
+
     set complete+=k
     set complete-=t
     set completeopt=menu,preview
     set updatetime=300
+
     set shortmess+=c
+
     set signcolumn=yes
+
     augroup complete
       autocmd!
       autocmd CompleteDone * pclose

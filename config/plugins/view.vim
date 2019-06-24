@@ -9,8 +9,7 @@
 "             1. Startify
 "             2. Rainbow
 "             3. AirLine
-"             4. IndentLine [ Invalid ]
-"             5. IndentGuides
+"             4. IndentGuides
 "=============================================================================
 
 
@@ -85,15 +84,6 @@
   let g:airline#extensions#whitespace#enabled = 0
 " }}}
 
-" IndentLine -------------------- {{{ 
-  let g:indentLine_char= '¦'
-  let g:indentLine_enabled= 1
-  let g:indent_guides_enable_on_vim_startup = 1
-" }}}
-
 " IndentGuides -------------------- {{{ 
   let g:indent_guides_enable_on_vim_startup = 1
-" }}}
-
-" DevIcons -------------------- {{{ 
 " }}}

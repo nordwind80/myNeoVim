@@ -16,6 +16,9 @@
   let g:comfortable_motion_scroll_down_key = 'j'
 " }}}
 
+" NERDCommenter -------------------- {{{ 
+  let g:NERDSpaceDelims=1
+" }}}"
 " Tmux Navigator --------------------{{{ 
   if exists('$TMUX')
   "  function! TmuxOrSplitSwitch(wincmd, tmuxdir)

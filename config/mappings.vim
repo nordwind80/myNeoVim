@@ -2,7 +2,7 @@
 "@ Author: Nordwind
 "@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t 
 "@ Created  Time: 19:51:13 30-12-2018
-"@ Last Modified: 16:57:14 01-01-2019
+"@ Last Modified: 21:03:43 24-06-2019 
 "@ Description:
 "         - File Name: mappings.vim
 "         - Neovim Key mappings settings
@@ -17,19 +17,36 @@
   " 替换ESC键退出INSERT模式
   inoremap jj <Esc>
 
+  " Terminal
+  " nmap <leader>ep :vert sp | term ipython<CR>
+  " nmap <leader>et :vert sp | term<CR>
+  " nmap <leader>ep :vs|:te ipython<CR>
+
+  " Exit Terminal
+  tnoremap <m-q> <c-\><c-n>
+
+  " 切换pwd到当前文件路径
+  nnoremap <leader>cd :cd %:h<CR>
+
   " 屏蔽方向键 Normal Insert Visual
   nnoremap <Left> <Nop>
   nnoremap <Right> <Nop>
   nnoremap <Up> <Nop>
   nnoremap <Down> <Nop>
-  inoremap <Left> <Nop>
-  inoremap <Right> <Nop>
-  inoremap <Up> <Nop>
-  inoremap <Down> <Nop>
+  " inoremap <Left> <Nop>
+  " inoremap <Right> <Nop>
+  " inoremap <Up> <Nop>
+  " inoremap <Down> <Nop>
   vnoremap <Left> <Nop>
   vnoremap <Right> <Nop>
   vnoremap <Up> <Nop>
   vnoremap <Down> <Nop>
+
+  " 命令行模式增强，ctrl - a到行首， -e 到行尾
+  cnoremap <C-j> <t_kd>
+  cnoremap <C-k> <t_ku>
+  cnoremap <C-a> <Home>
+  cnoremap <C-e> <End>
 
   " 快速在当前行上下插入空行
   nnoremap [<space> :<c-u>put! =repeat(nr2char(10), v:count1)<cr>'[
@@ -38,6 +55,24 @@
   " 左右缩进一行或者选区
   vnoremap < <gv
   vnoremap > >gv
+
+  "Ctrl + H             光标左移一格
+  imap <c-h> <Left>
+  " Ctrl + J            光标下移一行
+  imap <c-j> <Down>
+  " Ctrl + K            光标上移一行
+  imap <c-k> <Up>
+  " Ctrl + L            光标右移一格
+  imap <c-l> <Right>
+  " Alt  + H            光标移到当前行行首
+  imap ˙ <ESC>I
+  " Alt  + J            光标移到下一行的行首
+  imap ∆ <ESC><Down>A
+  " Alt  + K            光标移到上一行的行尾
+  imap ˚ <ESC><Up>A
+  " Alt  + L            光标移到当前行的行尾
+  imap ¬ <ESC>A
+
 
   " 上下移动一行
   nnoremap J :m .+1<CR>==
@@ -66,8 +101,13 @@
   " 选中并高亮最后一次插入的内容
   nnoremap gv `[v`]
 
+  " select block
+  nnoremap <leader>v V`}
+
   " .vimrc & .zshrc 快速打开 并保存生效
-  nnoremap <leader>ev :vsp ~/.config/nvim/init.vim<CR>
+  nnoremap <leader>evm :vsp ~/.config/nvim/config/mappings.vim<CR>
+  nnoremap <leader>evp :vsp ~/.config/nvim/config/plugins.vim<CR>
+  nnoremap <leader>evo :vsp ~/.config/nvim/config/options.vim<CR>
   nnoremap <leader>sv :source ~/.config/nvim/init.vim<CR>
   nnoremap <leader>ez :vsp ~/.zshrc<CR>
   nnoremap <leader>sz :source ~/.zshrc<CR>
@@ -79,7 +119,17 @@
   "文本对齐
   xnoremap <leader>a <Plug>(EasyAlign)
   nnoremap <leader>a <Plug>(EasyAlign)
+
+  " Quickly close the current window
+  nnoremap <leader>q :q<CR>
+
+  " Quickly save the current file
+  nnoremap <leader>w :w<CR>
+
+  " remap U to <C-r> for easier redo
+  nnoremap U <C-r>
 " }}}
+
 
 " Window --------------------{{{ 
   " 允许横向和纵向分隔布局
@@ -102,6 +152,7 @@
   noremap <leader>. :vertical resize +3<CR>
   noremap <leader>, :vertical resize -3<CR>
 " }}}
+
 
 " Tab --------------------{{{ 
   " 新建Tab
@@ -143,6 +194,7 @@
   vnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
 " }}} 
 
+
 " Buffer --------------------{{{ 
   noremap <leader>bp :bp<CR>
   noremap <leader>bn :bn<CR>
@@ -176,6 +228,7 @@
   noremap <leader>bd :bdelete<CR>
 " }}}
 
+
 " RunCode --------------------{{{ 
   augroup RunCode
     map <F5> :call CompileRunGcc()<CR>
@@ -199,11 +252,5 @@
       endif
     endfunc
   augroup END
-" }}}
-
-" Plugins -------------------- {{{ 
-  " ALE -------------------- {{{ 
-    "nnoremap <leader>sc :ALEToggle<CR>
-  " }}}
 " }}}
 

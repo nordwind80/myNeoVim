@@ -3,7 +3,8 @@
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": true,
   "python.linting.enabled": false,
-  "python.formatting.provider": "yapf",
+  "python.formatting.provider": "black",
+  //"python.pipenvPath": "/Users/Nordwind/Project/Python/",
   "python.venvPath": "/Users/Nordwind/.local/share/virtualenvs/Python--fREnqhY",
 
   // coc-tsserver
@@ -25,6 +26,7 @@
   "languageserver":{
     "golang": {
       "command": "gopls",
+      "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
       "filetypes": ["go"]
     },
 

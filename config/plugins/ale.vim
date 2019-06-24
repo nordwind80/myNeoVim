@@ -17,7 +17,7 @@
     let g:ale_set_highlights = 0
 
     let g:ale_lint_on_text_changed = 'never'
-    let g:ale_lint_on_enter = 0
+    let g:ale_lint_on_enter = 1
 
     let b:ale_fix_on_save = 0
   " }}}
@@ -35,11 +35,12 @@
 
   " KeyMapping Settings -------------------- {{{ 
     nmap <F7> <Plug>(ale_fix)
-    nnoremap <leader>ap <Plug>(ale_previous_wrap)
-    nnoremap <leader>an <Plug>(ale_next_wrap)
+    nmap sp <Plug>(ale_previous_wrap)
+    nmap sn <Plug>(ale_next_wrap)
 
-    nnoremap <leader>at :ALEToggle<CR>
-    nnoremap <leader>ad :ALEDetail<CR>
+    nmap <leader>at :ALEToggle<CR>
+    nmap <leader>ad :ALEDetail<CR>
+
 
     " Toggle quickfix list
     function! ToggleErrors()
@@ -58,18 +59,22 @@
         \ 'python': ['yapf', 'remove_trailing_lines', 'trim_whitespace'],
         \ 'vim': ['remove_trailing_lines'],
         \ 'javascript': ['tslint'],
-        \ 'typescript': ['eslint']
+        \ 'typescript': ['eslint'],
+        \ 'go': ['gofmt']
         \}
   " }}}
 
   " Linter Settings -------------------- {{{ 
     let g:ale_linters = {
           \ 'vim': ['vint'],
-          \ 'go': ['gofmt', 'goimports', 'golint', 'govet', 'gobuild'],
-          \ 'python': ['pyflakes'],
+          \ 'go': ['gofmt', 'goimports'],
+          \ 'python': ['flake8'],
           \ 'javascript': ['eslint'],
           \ 'typescript': ['tslint']
           \}
+
+    " let g:ale_python_flake8_options="--ignore=E501 --max-line-length=120"
+    let g:ale_python_flake8_options="--max-line-length=120"
   " }}}
 
 " }}}
