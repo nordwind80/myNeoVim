@@ -2,7 +2,7 @@
 "@ Author: Nordwind
 "@ E-Mial: bm9yZHdpbmQubWVAZ21haWwuY29t 
 "@ Created  Time: 19:51:13 30-12-2018
-"@ Last Modified: 21:31:14 24-06-2019 
+"@ Last Modified: 17:25:10 25-06-2019  
 "@ Description:
 "         - File Name: mappings.vim
 "         - Neovim Key mappings settings
@@ -56,6 +56,18 @@
   vnoremap < <gv
   vnoremap > >gv
 
+  " 上下移动一行
+  nnoremap J :m .+1<CR>==
+  nnoremap K :m .-2<CR>==
+
+  " 上下移动一个选区
+  vnoremap J :m '>+1<CR>gv=gv
+  vnoremap K :m '<-2<CR>gv=gv
+
+  " 快速移动行首和行尾
+  nnoremap H ^
+  nnoremap L $
+
   "Ctrl + H             光标左移一格
   imap <c-h> <Left>
   " Ctrl + J            光标下移一行
@@ -73,21 +85,12 @@
   " Alt  + L            光标移到当前行的行尾
   imap ¬ <ESC>A
 
-
-  " 上下移动一行
-  nnoremap J :m .+1<CR>==
-  nnoremap K :m .-2<CR>==
-
-  " 上下移动一个选区
-  vnoremap J :m '>+1<CR>gv=gv
-  vnoremap K :m '<-2<CR>gv=gv
-
-  " 快速移动行首和行尾
-  nnoremap H ^
-  nnoremap L $
-
   " 复制选中区到系统剪切板中
-  vnoremap <leader>y "+y
+  vnoremap <leader>y "+Y
+  nnoremap <leader>yy "+yy
+
+  " 将剪贴板内容粘贴到指定位置
+  nnoremap <leader>p "+p
 
   " select all 全选
   nnoremap <Leader>sa ggVG

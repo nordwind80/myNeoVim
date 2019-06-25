@@ -19,9 +19,9 @@
 
   " Encoding
   " set modifiable
-  set fileformat=unix
-  set encoding=utf-8
-  set fileencodings=utf-8,gbk,gb2312,gb18030
+  " set fileformat=unix
+  set encoding=UTF-8
+  " set fileencodings=utf-8,gbk,gb2312,gb18030
 
   " 检测文件类型
   filetype on
