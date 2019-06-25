@@ -86,7 +86,7 @@
   imap ¬ <ESC>A
 
   " 复制选中区到系统剪切板中
-  vnoremap <leader>y "+Y
+  vnoremap <leader>y "+y
   nnoremap <leader>yy "+yy
 
   " 将剪贴板内容粘贴到指定位置

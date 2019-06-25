@@ -19,9 +19,9 @@
 
   " Encoding
   " set modifiable
-  " set fileformat=unix
+  set fileformat=unix
   set encoding=UTF-8
-  " set fileencodings=utf-8,gbk,gb2312,gb18030
+  set fileencodings=utf-8,gbk,gb2312,gb18030
 
   " 检测文件类型
   filetype on
@@ -30,7 +30,7 @@
   " 允许插件
   filetype plugin on
   " 启动自动补全
-  filetype plugin indent on
+  " filetype plugin indent on
 
   " 取消备份。
   set nobackup
@@ -39,8 +39,9 @@
 
 
   " Code folds
-  set foldmethod=marker
-  set foldenable
+  set foldmethod=manual
+  " set foldmethod=marker
+  " set foldenable
  
   " Mouse
   set mouse-=a
@@ -161,8 +162,6 @@
 
 " FileType EnCode Settings --------------------{{{ 
 
-
-
   " 相对行号: 行号变成相对，可以用 nj/nk 进行跳转
   set relativenumber number
   au FocusLost * :set norelativenumber number
@@ -224,11 +223,12 @@
   augroup FileTypeSetting
     autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab autoindent fileformat=unix
     autocmd FileType go setlocal noexpandtab tabstop=8 shiftwidth=8 autoindent
+    autocmd FileType markdown setlocal autoindent expandtab smarttab shiftwidth=4 softtabstop=4
   augroup END
 
   augroup FileHead
   " 定义函数AutoSetFileHead，自动插入文件头
-    autocmd BufNewFile *.c,*.h,*.cpp,*.sh,*.vim,*.py,*.go,*.js,*.ts exec ":call AutoSetFileHead()"
+    autocmd BufNewFile *.c,*.h,*.cpp,*.sh,*.vim,*.py,*.md,*.go,*.js,*.ts exec ":call AutoSetFileHead()"
       function! AutoSetFileHead()
         if &filetype ==? 'sh'
           call setline(1, '#! /bin/bash')

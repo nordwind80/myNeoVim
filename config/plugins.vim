@@ -80,8 +80,8 @@
     Plug 'ambv/black', {'for': 'python'}
 
     " MarkDown
-    Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
     Plug 'godlygeek/tabular', {'for': 'markdown'}
+    Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
     Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
     Plug 'iamcco/markdown-preview.vim', {'for': 'markdown'}
   " }}}
