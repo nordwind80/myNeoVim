@@ -66,6 +66,9 @@ set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 " Cursor
 set scrolloff=10
 
+set lazyredraw
+set ttyfast
+
 
 "-------------------------------------------------------------------------------
 " 主题设置 

@@ -159,6 +159,7 @@
 " Tab --------------------{{{ 
   " 新建Tab
   augroup NewTab
+    autocmd!
     autocmd TabLeave * let g:last_active_tab = tabpagenr()
   augroup END
 
