@@ -85,6 +85,8 @@
   " Alt  + L            光标移到当前行的行尾
   imap ¬ <ESC>A
 
+  set clipboard=unnamed
+
   " 复制选中区到系统剪切板中
   vnoremap <leader>y "+y
   nnoremap <leader>yy "+yy
@@ -125,6 +127,9 @@
 
   " remap U to <C-r> for easier redo
   nnoremap U <C-r>
+
+  " 当前时间
+  iabbrev lst    <c-r>=strftime('%H:%M:%S %d-%m-%Y')<CR>
 " }}}
 
 
@@ -226,28 +231,27 @@
 " }}}
 
 
-" RunCode --------------------{{{ 
-  augroup RunCode
-    map <F5> :call CompileRunGcc()<CR>
-    func! CompileRunGcc()
-      exec'w'
-      if &filetype ==? 'c'
-        exec '!g++ % -o %<'
-        exec '!time ./%<'
-      elseif &filetype ==? 'python'
-        exec '!clear'
-        exec '!time python3 %'
-      elseif &filetype ==? 'sh'
-        exec '!time bash %'
-      elseif &filetype ==? 'html'
-        exec '!chrome % &'
-      elseif &filetype ==? 'go'
-        exec '!time go run %'
-      elseif &filetype ==? 'markdown'
-        exec '!~/.vim/markdown.pl % > %.html'
-        exec '!open -a Google\\ Chrome %.html'
-      endif
-    endfunc
-  augroup END
-" }}}
-
+if exists('$TMUX')
+"  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+"    let previous_winnr= winnr()
+"    silent! execute "wincmd " . a: wincmd
+" if previous_winnr == winnr()
+"      call system("tmux select-pane -" . a: tmuxdir)
+"      redraw!
+"    endif
+"  endfunction
+"
+"  let previous_title = substitute(system("tmux display-message - p '#{pane_title}'"), '\n', '', '')
+"  let & t_ti = "\<Esc>]2; vim\<Esc>\\" . & t_ti
+"  let & t_te = "\<Esc>]2; ". previous_title . "\< Esc >\\" . & t_te
+"
+"  nnoremap <silent> <C-h>: call TmuxOrSplitSwitch('h', 'L') <cr>
+"  nnoremap <silent> <C-j>: call TmuxOrSplitSwitch('j', 'D') <cr>
+"  nnoremap <silent> <C-k>: call TmuxOrSplitSwitch('k', 'U') <cr>
+"  nnoremap <silent> <C-l>: call TmuxOrSplitSwitch('l', 'R') <cr>
+" else
+  map <C-h> <C-w>h
+  map <C-j> <C-w>j
+  map <C-k> <C-w>k
+  map <C-l> <C-w>l
+endif

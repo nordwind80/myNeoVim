@@ -1,4 +1,19 @@
 {
+  // proxy
+  //"http.proxy": "socke5://127.0.0.1:1081",
+
+  // coc-git
+  "git.addedSign.text": "\u2588",
+  //"git.addedSign.hlGroup": "DiffAdd",
+  "git.changedSign.text": "\u2588",
+  "git.changedSign.hlGroup": "DiffChange",
+  "git.removedSign.text": "\u2588",
+  "git.removedSign.hlGroup": "DiffDelete",
+  "git.topRemovedSign.text": "\u2588",
+  "git.topRemovedSign.hlGroup": "DiffDelete",
+  "git.changeRemovedSign.text": "\u2588",
+  "git.changeRemovedSign.hlGroup": "DiffChangeDelete",
+
   // coc-python
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": true,
@@ -14,6 +29,9 @@
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.noSemicolons": true,
   "javascript.preferences.quoteStyle": "single",
+
+  // coc-snippet
+  "snippets.ultisnips.enable": false,
 
   "suggest.minTriggerInputLength": 2,
   "suggest.snippetIndicator": " ►",
@@ -35,12 +53,6 @@
       "args": ["start"],
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
-    },
-
-    "efm": {
-      "command": "efm-langserver",
-      "args": ["-c", "/Users/Nordwind/.config/efm-langserver/config.yaml"],
-      "filetypes": ["vim", "eruby", "markdown"]
     }
   }
 }

@@ -1,0 +1,71 @@
+function! MyStatusLine()
+  return s:GetPaste()
+        \. "%4* %{MyStatusGit()}%*"
+        \. "%5* %{MyStatusGitChanges()}%* %{MyStatusCoc()}"
+        \. " %f %{MyStatusModifySymbol()}"
+        \. " %{MyStatusReadonly()}"
+        \. "%=%-{&ft} %l,%c %P "
+"%{&fenc}
+endfunction
+
+function! s:IsTempFile()
+  if !empty(&buftype) | return 1 | endif
+  if &previewwindow | return 1 | endif
+  if &filetype ==# 'gitcommit' | return 1 | endif
+  let filename = expand('%:p')
+  if filename =~# '^/tmp' | return 1 | endif
+  if filename =~# '^fugitive:' | return 1 | endif
+  return 0
+endfunction
+
+function! s:GetPaste()
+  if !&paste | return '' |endif
+  return "%#MyStatusPaste# paste %*"
+endfunction
+
+function! MyStatusReadonly()
+  if !&readonly | return '' |endif
+  return "  "
+endfunction
+
+function! MyStatusCoc()
+  if get(g:, 'did_coc_loaded', 0)
+    return coc#status()
+  endif
+  return ''
+endfunction
+
+function! MyStatusModifySymbol()
+  return &modified ? '⚡' : ''
+endfunction
+
+function! MyStatusGitChanges() abort
+  if s:IsTempFile() | return '' | endif
+  return get(b:, 'coc_git_status', '')
+endfunction
+
+function! MyStatusGit(...) abort
+  if s:IsTempFile() | return '' | endif
+  return get(g:, 'coc_git_status', '')
+endfunction
+
+function! SetStatusLine()
+  if &previewwindow | return | endif
+  if s:IsTempFile() | return | endif
+  call MyStatusGit(1)
+  setl statusline=%!MyStatusLine()
+  " hi User6         guifg=#fb4934 guibg=#282828 gui=none
+  " hi User3         guifg=#e03131 guibg=#111111    gui=none
+  " hi MyStatusPaste guifg=#F8F8F0 guibg=#FF5F00 gui=none
+  " hi MyStatusPaste ctermfg=202   ctermbg=16    cterm=none
+  hi User4 guifg=#f8f8ff guibg=#00af87
+  hi User5 guifg=#f8f9fa guibg=#00af87
+endfunction
+
+augroup statusline
+  autocmd!
+  autocmd User GitGutter call SetStatusLine()
+  autocmd BufNewFile,BufReadPost,ShellCmdPost,BufWritePost * call SetStatusLine()
+  autocmd FileChangedShellPost,ColorScheme * call SetStatusLine()
+  autocmd FileReadPre,ShellCmdPost,FileWritePost * call SetStatusLine()
+augroup end
