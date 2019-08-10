@@ -41,19 +41,27 @@ call plug#begin()
 
 if index(g:bundle_group, 'basic') >= 0
 
+  " comment
   Plug 'scrooloose/nerdcommenter'
 
+  " align
   Plug 'junegunn/vim-easy-align'
 
+  " surround
   Plug 'tpope/vim-surround'
+
+  " multiple cursors
+  Plug 'terryma/vim-multiple-cursors'
 
   Plug 'liuchengxu/vim-which-key', {'on': ['WhichKey', 'WhichKey!']}
 
-  Plug 'terryma/vim-multiple-cursors'
+  " Plug 'jpalardy/vim-slime'
 
-  Plug 'jpalardy/vim-slime'
-
+  " Search in the Dash for macOS 
   Plug 'rizzatti/dash.vim'
+
+  " A nice context menu for vim
+  Plug 'kizza/actionmenu.nvim'
 
 endif
 
@@ -77,6 +85,7 @@ if index(g:bundle_group, 'config') >= 0
 
   Plug 'mhinz/vim-startify'
 
+  " Tags
   Plug 'liuchengxu/vista.vim', {'on': 'Vista'}
 
 endif
@@ -103,7 +112,7 @@ endif
 
 if index(g:bundle_group, 'ale') >= 0
 
-  Plug 'w0rp/ale', {'for': ['vim', 'python', 'go', 'javascript', 'typescript']}
+  " Plug 'w0rp/ale', {'for': ['vim', 'python', 'go', 'javascript', 'typescript']}
 
 endif
 
@@ -140,6 +149,7 @@ endif
 
 if index(g:bundle_group, 'go') >= 0
 
+  " Go for vim
   Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': 'go'}
   " Plug 'fatih/vim-go', {'for': 'go'}
 
@@ -152,7 +162,7 @@ endif
 
 if index(g:bundle_group, 'python') >= 0
 
-  " Python 语法高亮增强(自定义) -------------------- {{{ 
+  " Python3 Syntax
   Plug 'nordwind80/python-syntax', {'for': 'python'}
 
 endif
@@ -163,8 +173,13 @@ endif
 "-------------------------------------------------------------------------------
 
 if index(g:bundle_group, 'typescript') >= 0
+
+  " TypeScript Syntax
   Plug 'leafgarland/typescript-vim', {'for': 'typescript, javascript'}
+
+  " JSON Syntax
   Plug 'elzr/vim-json'
+
 endif
 
 
@@ -174,9 +189,17 @@ endif
 
 if index(g:bundle_group, 'markdown') >= 0
 
+  " vim markdown
   Plug 'godlygeek/tabular', {'for': 'markdown'}
   Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
+  " hugo helper
+  Plug 'robertbasic/vim-hugo-helper', { 'for': 'markdown'}
+  
+  " make TOC
+  Plug 'mzlogin/vim-markdown-toc', { 'for': 'markdown' }
+
+  " markdown preview
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } , 'for': 'markdown'}
   Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
 
@@ -187,3 +210,8 @@ endif
 " 插件结束安装 
 "-------------------------------------------------------------------------------
 call plug#end()
+
+
+for file in split(globpath('~/.config/nvim/init/plugins/', '*.vim'), '\n') 
+  exe 'source' file
+endfor

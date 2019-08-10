@@ -79,7 +79,7 @@ endfunc
 
 function! <SID>snip_comment_block(repeat)
 	let l:comment = s:comment()
-	let l:complete = s:comment_bar(a:repeat, 80)
+	let l:complete = s:comment_bar(a:repeat, 120)
 	if l:comment == ''
 		return
 	endif
@@ -96,7 +96,7 @@ endfunc
 
 function! <SID>snip_copyright()
 	let l:c = s:comment()
-	let l:complete = s:comment_bar('=', 80)
+	let l:complete = s:comment_bar('=', 120)
 	let l:filename = expand("%:t")
 	let l:text = []
 	if &filetype == 'python'

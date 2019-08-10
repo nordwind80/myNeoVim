@@ -162,6 +162,10 @@ function! GetFileIcon(path)
   return ''
 endfunction
 
+function! MyStatusModifySymbol()
+  return &modified ? '⚡' : ''
+endfunction
+
 function! MyTabLabel(n)
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
@@ -171,7 +175,7 @@ function! MyTabLabel(n)
   if empty(name)
     return '[No Name]'
   else
-    return a:n . ' '. icon.' '.fnamemodify(name, ':t')
+    return a:n . ' '. icon.' '.fnamemodify(name, ':t').' '.MyStatusModifySymbol()
   endif
 endfunction
 

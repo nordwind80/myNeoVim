@@ -2,7 +2,59 @@
   // proxy
   //"http.proxy": "socke5://127.0.0.1:1081",
 
+  "suggest.triggerAfterInsertEnter": false,
+  "suggest.noselect": false,
+  "suggest.triggerCompletionWait": 100,
+  "suggest.detailField":"preview",
+  "suggest.minTriggerInputLength": 1,
+  "suggest.snippetIndicator": " ►",
+  "suggest.enablePreview": true,
+  "suggest.echodocSupport": true,
+  "suggest.autoTrigger": "always",
+  "suggest.maxCompleteItemCount": 25,
+  "suggest.completionItemKindLabels": {
+        "keyword": "\uf1de",
+        "variable": "\ue79b",
+        "value": "\uf89f",
+        "operator": "\u03a8",
+        "function": "\u0192",
+        "reference": "\ufa46",
+        "constant": "\uf8fe",
+        "method": "\uf09a",
+        "struct": "\ufb44",
+        "class": "\uf0e8",
+        "interface": "\uf417",
+        "text": "\ue612",
+        "enum": "\uf435",
+        "enumMember": "\uf02b",
+        "module": "\uf40d",
+        "color": "\ue22b",
+        "property": "\ue624",
+        "field": "\uf9be",
+        "unit": "\uf475",
+        "event": "\ufacd",
+        "file": "\uf723",
+        "folder": "\uf114",
+        "snippet": "\ue60b",
+        "typeParameter": "\uf728",
+        "default": "\uf29c"
+        },
+
+
+  // diagnostic
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.signOffset": 9999999,
+  "diagnostic.errorSign": "●",
+  "diagnostic.warningSign": "●",
+  "diagnostic.displayByAle": false,
+  "diagnostic.refreshOnInsertMode": true,
+
   // coc-git
+  "git.enableGutters": true,
+  "git.branchCharacter":"\uf408",
+  "git.addGlameToBufferVar": true,
+  "git.addGlameToVirtualText": true,
+  "git.virtualTextPrefix": " ❯❯❯ ",
   "git.addedSign.text": "\u2588",
   //"git.addedSign.hlGroup": "DiffAdd",
   "git.changedSign.text": "\u2588",
@@ -14,17 +66,33 @@
   "git.changeRemovedSign.text": "\u2588",
   "git.changeRemovedSign.hlGroup": "DiffChangeDelete",
 
+  // sessions
+  "session.directory": "~/.config/sessions",
+  "list.source.mru.ignoreGitIgnore": true,
+
   // coc-python
+  "python.venvPath": "/Users/Nordwind/.local/share/virtualenvs/Python--fREnqhY",
   "python.autoComplete.addBrackets": true,
   "python.jediEnabled": true,
-  "python.linting.enabled": false,
+
   "python.formatting.provider": "black",
-  //"python.pipenvPath": "/Users/Nordwind/Project/Python/",
-  "python.venvPath": "/Users/Nordwind/.local/share/virtualenvs/Python--fREnqhY",
+  "python.formatting.blackArgs": ["--line-length=120"],
+
+  "python.linting.lintOnSave": true,
+  "python.linting.enabled": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.flake8Args": ["--max-line-length=120"],
+  "python.linting.mypyEnabled": true,
+  "python.linting.mypyArgs": [
+          "--ignore-missing-imports",
+          "--follow-imports=silent",
+          "--show-column-numbers"
+  ],
+
+  // Go language.
 
   // coc-tsserver
   "tsserver.enableJavascript": false,
-  "tsserver.orgnizeImportOnSave": true,
   "typescript.preferences.noSemicolons": true,
   "typescript.preferences.quoteStyle": "single",
   "javascript.preferences.noSemicolons": true,
@@ -33,19 +101,21 @@
   // coc-snippet
   "snippets.ultisnips.enable": false,
 
-  "suggest.minTriggerInputLength": 2,
-  "suggest.snippetIndicator": " ►",
-  "suggest.enablePreview": true,
-
-  "coc.preferences.diagnostic.enable": false,
-  "coc.preferences.autoTrigger": "always",
-  "suggest.autoTrigger": "always",
+  //"coc.preferences.diagnostic.enable": true,
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.formatOnSaveFiletypes": ["go", "python", "javascript", "typescript"],
+  //"coc.preferences.autoTrigger": "always",
 
   "languageserver":{
     "golang": {
       "command": "gopls",
       "rootPatterns": ["go.mod", ".vim/", ".git/", ".hg/"],
-      "filetypes": ["go"]
+      "filetypes": ["go"],
+      "initializationOptions": {
+              "diagnosticsEnabled": true,
+              "formatTool": "goimports",
+              "lintTool": "golint"
+      }
     },
 
     "bash": {
@@ -54,5 +124,6 @@
       "filetypes": ["sh"],
       "ignoredRootPaths": ["~"]
     }
-  }
+  },
+  "coc.preferences.extensionUpdateCheck": "daily"
 }

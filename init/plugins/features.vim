@@ -25,7 +25,6 @@
   nmap ga <Plug>(EasyAlign)
 " }}}
 
-
 " Vim-Slime --------------------  {{{
   " use neovim terminal
   let g:slime_target = 'tmux'

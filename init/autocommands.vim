@@ -94,8 +94,8 @@ nnoremap <C-n> :call NumberToggle()<cr>
 augroup Viml
   autocmd!
   autocmd FileType vim,tmux setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
-  autocmd FileType vim,tmux setlocal foldmethod=marker
-  autocmd FileType vim,tmux :iabbrev <buffer> --- -------------------- 
+  autocmd FileType vim,tmux setlocal foldmethod=marker foldmarker={{,}} foldlevel=0
+  autocmd FileType vim,tmux :iabbrev <buffer> --- --------------------
 augroup END
 
 
@@ -115,7 +115,7 @@ augroup END
 augroup Python
   autocmd!
   autocmd FileType python setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
-  autocmd BufWritePre *.py :ALEFix
+  " autocmd BufWritePre *.py :ALEFix
 augroup END
 
 

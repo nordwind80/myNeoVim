@@ -15,6 +15,7 @@
 
 " MarkDown --------------------  {{{
   " 设置
+  let g:markdown_fenced_languages = ['css', 'js=javascript', 'py=python', 'ts=typescript', 'go']
   let g:vim_markdown_conceal= 0
   let g:vim_markdown_folding_disabled = 1
   let g:mkdp_path_to_chrome= "open -a Google\\ Chrome"

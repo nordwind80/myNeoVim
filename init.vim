@@ -8,6 +8,7 @@
 "        - NeoVim init.vim,load other config file.
 "============================================================================= 
 
+" vim: set sw=2 ts=2 sts=2 et tw=78 foldmarker={{,}} foldmethod=marker foldlevel=0:
 
 
 "-------------------------------------------------------------------------------
@@ -48,10 +49,7 @@ endif
 " 加载配置文件
 "-------------------------------------------------------------------------------
 
-for file in split(glob('~/.config/nvim/init/*.vim'), '\n')
+for file in split(globpath('~/.config/nvim/init/', '*.vim'), '\n')
   exe 'source' file
 endfor
 
-for file in split(glob('~/.config/nvim/init/plugins/*.vim'), '\n')
-  exe 'source' file
-endfor

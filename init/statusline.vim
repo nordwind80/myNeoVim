@@ -1,11 +1,37 @@
+let g:currentmode = {
+  \ 'n': 'NORMAL',
+  \ 'i': 'INSERT',
+  \ 'R': 'REPLACE',
+  \ 'v': 'VISUAL',
+  \ 'V': 'V-LINE',
+  \ '\<C-v>': 'V-BLOCK',
+  \ 'c': 'COMMAND',
+  \ 's': 'SELECT',
+  \ 'S': 'S-LINE',
+  \ '\<C-s>': 'S-BLOCK',
+  \ 't': 'TERMINAL'
+  \ }
+
 function! MyStatusLine()
   return s:GetPaste()
-        \. "%4* %{MyStatusGit()}%*"
-        \. "%5* %{MyStatusGitChanges()}%* %{MyStatusCoc()}"
-        \. " %f %{MyStatusModifySymbol()}"
-        \. " %{MyStatusReadonly()}"
-        \. "%=%-{&ft} %l,%c %P "
+        \. '%2*  %{toupper(g:currentmode[mode()])}  '
+        \. '%3* %{TotalBuffers()} %*'
+        \. '%5* %{MyStatusGit()}%*'
+        \. '%6*%{MyStatusGitChanges()}%* %{MyStatusCoc()}'
+        \. ' %f %{MyStatusModifySymbol()}'
+        \. ' %{MyStatusReadonly()}'
+        \. '%=%-{&ft} %l,%c %P '
+        \. '%7* %{MyStatusError()} %{MyStatusWarning()}%*'
 "%{&fenc}
+endfunction
+
+function! BufnrWinnr() abort
+  let l:bufnr = bufnr('%')
+  return l:bufnr
+endfunction
+
+function! TotalBuffers() abort
+  return 'Buffer: '.BufnrWinnr().'/'.len(filter(range(1, bufnr('$')), 'buflisted(v:val)')).''
 endfunction
 
 function! s:IsTempFile()
@@ -20,12 +46,12 @@ endfunction
 
 function! s:GetPaste()
   if !&paste | return '' |endif
-  return "%#MyStatusPaste# paste %*"
+  return '%#MyStatusPaste# paste %*'
 endfunction
 
 function! MyStatusReadonly()
   if !&readonly | return '' |endif
-  return "  "
+  return '  '
 endfunction
 
 function! MyStatusCoc()
@@ -49,17 +75,35 @@ function! MyStatusGit(...) abort
   return get(g:, 'coc_git_status', '')
 endfunction
 
+function! MyStatusError() abort
+  if exists('g:loaded_ale')
+    let l:counts = ale#statusline#Count(bufnr(''))
+      return l:counts[0] == 0 ? 'E • 0 |' : 'E • '.l:counts[0].' |'
+  endif
+  return ''
+endfunction
+
+function! MyStatusWarning() abort
+  if exists('g:loaded_ale')
+    let l:counts = ale#statusline#Count(bufnr(''))
+      return l:counts[1] == 0 ? 'W • 0 ' : 'W • '.l:counts[1].' '
+  endif
+  return ''
+endfunction
+
 function! SetStatusLine()
   if &previewwindow | return | endif
   if s:IsTempFile() | return | endif
   call MyStatusGit(1)
   setl statusline=%!MyStatusLine()
-  " hi User6         guifg=#fb4934 guibg=#282828 gui=none
-  " hi User3         guifg=#e03131 guibg=#111111    gui=none
-  " hi MyStatusPaste guifg=#F8F8F0 guibg=#FF5F00 gui=none
-  " hi MyStatusPaste ctermfg=202   ctermbg=16    cterm=none
-  hi User4 guifg=#f8f8ff guibg=#00af87
-  hi User5 guifg=#f8f9fa guibg=#00af87
+  hi User2         guifg=#f8f8ff guibg=#24936E    gui=none
+  hi User3         guifg=#f8f8ff guibg=#24936E    gui=none
+  hi User4 guifg=#f8f8ff guibg=#24936E
+  hi User5 guifg=#f8f8ff guibg=#24936E
+  hi User6 guifg=#f8f9fa guibg=#24936E
+  hi User7 guifg=#f8f9fa guibg=#24936E
+  hi MyStatusPaste guifg=#F8F8F0 guibg=#FF5F00 gui=none
+  hi MyStatusPaste ctermfg=202   ctermbg=16    cterm=none
 endfunction
 
 augroup statusline

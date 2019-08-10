@@ -9,24 +9,12 @@
 "=============================================================================
 
 
-" Edit --------------------{{{ 
-  "Leader key
-  let mapleader = ' '
-  let localleader = '-'
-
+" Baseic Keymaps -------------------- {{
   " 替换ESC键退出INSERT模式
   inoremap jj <Esc>
 
-  " Terminal
-  " nmap <leader>ep :vert sp | term ipython<CR>
-  " nmap <leader>et :vert sp | term<CR>
-  " nmap <leader>ep :vs|:te ipython<CR>
-
   " Exit Terminal
   tnoremap <m-q> <c-\><c-n>
-
-  " 切换pwd到当前文件路径
-  nnoremap <leader>cd :cd %:h<CR>
 
   " 屏蔽方向键 Normal Insert Visual
   nnoremap <Left> <Nop>
@@ -85,7 +73,51 @@
   " Alt  + L            光标移到当前行的行尾
   imap ¬ <ESC>A
 
+  " 选中并高亮最后一次插入的内容
+  nnoremap gv `[v`]
+
   set clipboard=unnamed
+
+  " remap U to <C-r> for easier redo
+  nnoremap U <C-r>
+
+  " 当前时间
+  iabbrev lst    <c-r>=strftime('%H:%M:%S %d-%m-%Y')<CR>
+
+  " List -------------------- {{
+    nnoremap <silent> \r  :<C-u>CocList -N mru -A<cr>
+    nnoremap <silent> <space>h  :<C-u>CocList helptags<cr>
+    nnoremap <silent> <space>g  :<C-u>CocList gstatus<CR>
+    nnoremap <silent> <space>t  :<C-u>CocList buffers<cr>
+    nnoremap <silent> <space>y  :<C-u>CocList yank<cr>
+    nnoremap <silent> <space>u  :<C-u>CocList snippets<cr>
+    nnoremap <silent> <space>w  :exe 'CocList -A -I --normal --input='.expand('<cword>').' words -w'<CR>
+    nnoremap <silent> <space>l  :<C-u>CocList locationlist<CR>
+    nnoremap <silent> <space>q  :<C-u>CocList quickfix<CR>
+    nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+    nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+    nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+    " nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
+    nnoremap <silent> <space>s  :<C-u>CocList sessions<cr>
+    nnoremap <silent> <space>r  :<C-u>CocList mru<cr>
+    nnoremap <silent> <space>f  :<C-u>CocList files<cr>
+    nnoremap <silent> <space>j  :<C-u>CocNext<CR>
+    nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
+    nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+  " }}
+
+" }}
+
+
+" Leader Keymaps -------------------- {{
+  "Leader key
+  let mapleader = ';'
+  let localleader = '-'
+
+  nmap <silent><leader>q :q
+
+  " 切换pwd到当前文件路径
+  nnoremap <leader>cd :cd %:h<CR>
 
   " 复制选中区到系统剪切板中
   vnoremap <leader>y "+y
@@ -96,9 +128,6 @@
 
   " select all 全选
   nnoremap <Leader>sa ggVG
-
-  " 选中并高亮最后一次插入的内容
-  nnoremap gv `[v`]
 
   " select block
   nnoremap <leader>v V`}
@@ -120,20 +149,15 @@
   nnoremap <leader>a <Plug>(EasyAlign)
 
   " Quickly close the current window
-  nnoremap <leader>q :q<CR>
+  nmap <leader>q :q<CR>
 
   " Quickly save the current file
-  nnoremap <leader>w :w<CR>
+  nmap <leader>w :w<CR>
 
-  " remap U to <C-r> for easier redo
-  nnoremap U <C-r>
-
-  " 当前时间
-  iabbrev lst    <c-r>=strftime('%H:%M:%S %d-%m-%Y')<CR>
-" }}}
+" }}
 
 
-" Window --------------------{{{ 
+" Window -------------------- {{ 
   " 允许横向和纵向分隔布局
   set splitbelow
   set splitright
@@ -149,14 +173,14 @@
   nnoremap <C-H> <C-W><C-H> " 组合快捷键：- Ctrl-h 切换到左侧的分割窗口
 
   " 调整窗口大小
-  noremap <leader>= :resize +3<CR>
-  noremap <leader>- :resize -3<CR>
-  noremap <leader>. :vertical resize +3<CR>
-  noremap <leader>, :vertical resize -3<CR>
-" }}}
+  noremap <space>= :resize +3<CR>
+  noremap <space>- :resize -3<CR>
+  noremap <space>. :vertical resize +3<CR>
+  noremap <space>, :vertical resize -3<CR>
+" }}
 
 
-" Tab --------------------{{{ 
+" Tab -------------------- {{
   " 新建Tab
   augroup NewTab
     autocmd!
@@ -195,10 +219,10 @@
   let g:last_active_tab = 1
   nnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
   vnoremap <silent> <leader>tt :execute 'tabnext ' . g:last_active_tab<cr>
-" }}} 
+" }}
 
 
-" Buffer --------------------{{{ 
+" Buffer -------------------- {{
   noremap <leader>bp :bp<CR>
   noremap <leader>bn :bn<CR>
 
@@ -229,30 +253,32 @@
 
   " delete buffer
   noremap <leader>bd :bdelete<CR>
-" }}}
+" }}
 
 
-if exists('$TMUX')
-"  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
-"    let previous_winnr= winnr()
-"    silent! execute "wincmd " . a: wincmd
-" if previous_winnr == winnr()
-"      call system("tmux select-pane -" . a: tmuxdir)
-"      redraw!
-"    endif
-"  endfunction
-"
-"  let previous_title = substitute(system("tmux display-message - p '#{pane_title}'"), '\n', '', '')
-"  let & t_ti = "\<Esc>]2; vim\<Esc>\\" . & t_ti
-"  let & t_te = "\<Esc>]2; ". previous_title . "\< Esc >\\" . & t_te
-"
-"  nnoremap <silent> <C-h>: call TmuxOrSplitSwitch('h', 'L') <cr>
-"  nnoremap <silent> <C-j>: call TmuxOrSplitSwitch('j', 'D') <cr>
-"  nnoremap <silent> <C-k>: call TmuxOrSplitSwitch('k', 'U') <cr>
-"  nnoremap <silent> <C-l>: call TmuxOrSplitSwitch('l', 'R') <cr>
-" else
-  map <C-h> <C-w>h
-  map <C-j> <C-w>j
-  map <C-k> <C-w>k
-  map <C-l> <C-w>l
-endif
+" Tmux -------------------- {{
+  if exists('$TMUX')
+  "  function! TmuxOrSplitSwitch(wincmd, tmuxdir)
+  "    let previous_winnr= winnr()
+  "    silent! execute "wincmd " . a: wincmd
+  " if previous_winnr == winnr()
+  "      call system("tmux select-pane -" . a: tmuxdir)
+  "      redraw!
+  "    endif
+  "  endfunction
+  "
+  "  let previous_title = substitute(system("tmux display-message - p '#{pane_title}'"), '\n', '', '')
+  "  let & t_ti = "\<Esc>]2; vim\<Esc>\\" . & t_ti
+  "  let & t_te = "\<Esc>]2; ". previous_title . "\< Esc >\\" . & t_te
+  "
+  "  nnoremap <silent> <C-h>: call TmuxOrSplitSwitch('h', 'L') <cr>
+  "  nnoremap <silent> <C-j>: call TmuxOrSplitSwitch('j', 'D') <cr>
+  "  nnoremap <silent> <C-k>: call TmuxOrSplitSwitch('k', 'U') <cr>
+  "  nnoremap <silent> <C-l>: call TmuxOrSplitSwitch('l', 'R') <cr>
+  " else
+    map <C-h> <C-w>h
+    map <C-j> <C-w>j
+    map <C-k> <C-w>k
+    map <C-l> <C-w>l
+  endif
+" }}
