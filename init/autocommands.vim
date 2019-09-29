@@ -104,7 +104,7 @@ augroup END
 "-------------------------------------------------------------------------------
 augroup JavaScript
   autocmd!
-  autocmd FileType javascript,typescript setlocal tabstop=2 softtabstop=2 shiftwidth=2 expandtab
+  autocmd FileType javascript,typescript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
   autocmd FileType typescript let b:coc_pairs_disabled = ['<']
 augroup END
 

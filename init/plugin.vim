@@ -169,7 +169,7 @@ endif
 
 
 "-------------------------------------------------------------------------------
-" TypeScript
+" TypeScript, JavaScript & JSON
 "-------------------------------------------------------------------------------
 
 if index(g:bundle_group, 'typescript') >= 0
@@ -202,6 +202,9 @@ if index(g:bundle_group, 'markdown') >= 0
   " markdown preview
   Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() } , 'for': 'markdown'}
   Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
+
+  " Nginx
+  Plug 'chr4/nginx.vim', {'for': 'nginx'}
 
 endif
 
