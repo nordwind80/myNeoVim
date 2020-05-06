@@ -52,8 +52,8 @@
   // coc-git
   "git.enableGutters": true,
   "git.branchCharacter":"\uf408",
-  "git.addGlameToBufferVar": true,
-  "git.addGlameToVirtualText": true,
+  "git.addGBlameToBufferVar": true,
+  "git.addGBlameToVirtualText": true,
   "git.virtualTextPrefix": " ❯❯❯ ",
   "git.addedSign.text": "\u2588",
   //"git.addedSign.hlGroup": "DiffAdd",
@@ -82,7 +82,7 @@
   "python.linting.enabled": true,
   "python.linting.flake8Enabled": true,
   "python.linting.flake8Args": ["--max-line-length=120"],
-  "python.linting.mypyEnabled": true,
+  "python.linting.mypyEnabled": false,
   "python.linting.mypyArgs": [
           "--ignore-missing-imports",
           "--follow-imports=silent",

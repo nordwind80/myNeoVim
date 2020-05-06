@@ -104,8 +104,10 @@ augroup END
 "-------------------------------------------------------------------------------
 augroup JavaScript
   autocmd!
-  autocmd FileType javascript,typescript setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
+  autocmd FileType javascript,typescript,vue setlocal tabstop=4 softtabstop=4 shiftwidth=4 expandtab
   autocmd FileType typescript let b:coc_pairs_disabled = ['<']
+  autocmd Filetype typescript syn match typescriptAttribute2 /\.\h\w*(/hs=s+1,he=e-1
+  autocmd Filetype typescript hi def link typescriptAttribute2 Function
 augroup END
 
 
